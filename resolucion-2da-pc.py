@@ -191,6 +191,7 @@ if __name__ == "__main__":
     # [INICIO]: Pruebe sus soluciones entre [INICIO] y [FIN].
     # No edite antes de esta línea.
 
+    # 1)
     # EJEMPLO 1 : 10 + 5 * 2 - 1 ......... Resultado Esperado : 19
     expresion_1 = "10 5 2 * + 1 -"
     calculadora_1 = NotacionPolacaInversa(expresion_1)
@@ -204,9 +205,36 @@ if __name__ == "__main__":
     resultado_2 = calculadora_2.evaluar()
     print("El resultado de la expresion '6 / 2 + 8 * 3' es:", resultado_2)
     
-    
     calculadora_ganancias = CalculadoraGanancias()
     
+    
+    print()
+    print()
+    
+    
+    # 2)
+    print("Emjemplo. Pila con sobrescritura deshabilitada")
+    try:
+        pila1 = PilaCapacidadFija(capacidad=3, sobrescribir=False)
+        print("¿Pila Vacia?", pila1.esta_vacia())  # True
+        pila1.apilar(1)
+        pila1.apilar(2)
+        pila1.apilar(3)
+        print("Elementos dentro de la pila:", pila1.elementos)  # [1, 2, 3]
+        print("Cima de pila:", pila1.cima())  # 3
+        print("Tamaño de pila:", pila1.tamanio())  # 3
+
+        # Intentamos con otro elemento, esperamos ErrorEnPila)
+        pila1.apilar(4)  # ErrorEnPila: la pila se encuentra llena
+    except ErrorEnPila as e:
+        print("Excepción lanzada:", e)
+
+
+    print()
+    print()
+    
+    
+    # 3)
     try:
         # Ejemplo para una entrada valida
         calculadora_ganancias.registrar_compra("100 accion(es) al precio de 20 PEN cada una.")
@@ -217,5 +245,6 @@ if __name__ == "__main__":
     
     except ErrorTransaccion as e:
         print("Error", e)
+    
     
     # [FIN]
